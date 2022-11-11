@@ -85,7 +85,7 @@ body{
 }
 
 .inside{
-    background-image: url("img/boxingring.png");
+    background-image: url("/img/boxingring.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
