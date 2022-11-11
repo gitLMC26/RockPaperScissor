@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper, Scissor Game</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game_container">
+        <div class="center_contents">
+            <div class="div">
+                <h2 id="gameNameh1">Rock-Paper-Scissor</h1>
+                <button id="startBtn">Press Start</button>
+                <div class="boxingRing">
+                    <!-- <img src="/img/boxingring.png"> -->
+                    <div class="inside">
+                        <div class="pPreview">
+                            <!-- Players Preview -->
+                        </div>
+                        <div class="botPreview">
+                            <!-- Bot Preview -->
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <div class="divs" id="pDiv">
+                            <div class="playerSection">
+                                <div class="pLives">
+                                    <!-- Player Lives -->
+                                </div>
+                            </div>
+                            <div class="choose_div">
+                                <div class="rock">
+                                    <button id="rockBtn" value="1"><img src="img/rock.png" class="image"></button> 
+                                </div>
+                                <div class="paper">
+                                    <button id="paperBtn" value="2"><img src="img/paper.png" class="image"></button>
+                                </div>
+                                <div class="scissor">
+                                    <button id="scissorBtn" value="3"><img src="img/scissor.png" class="image"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divs" id="botDiv">
+                            <div class="botSection">
+                                <div class="botLives">
+                                    <!-- Bot Lives -->
+                                </div>
+                            </div>
+                            <div class="bot_choose">
+                                <div class="rock">
+                                    <button id="rockBtn" value="1" disabled><img src="img/botrock.png" class="image"></button> 
+                                </div>
+                                <div class="paper">
+                                    <button id="paperBtn" value="2" disabled><img src="img/botpaper.png" class="image"></button>
+                                </div>
+                                <div class="scissor">
+                                    <button id="scissorBtn" value="3" disabled><img src="img/botscissor.png" class="image"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
