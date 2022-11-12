@@ -36,7 +36,7 @@ function start(){
         let div = document.querySelector(".div");
         let fight = document.createElement("h1");
         fight.id = "fight";
-        fight.textContent = "FIGHT"
+        fight.textContent = "FIGHT";
 
         div.replaceChild(fight, div.children[0]);
 
@@ -46,12 +46,31 @@ function start(){
         btnPaper.removeAttribute("disabled","");
         let btnScissor = document.querySelector("#scissorBtn");
         btnScissor.removeAttribute("disabled","");
+        
         let playerLivesDiv = document.querySelector(".pLives");
+        let pScoreHeartDiv = document.createElement("div");
+        pScoreHeartDiv.classList = "pScoreHeartDiv";
+        playerLivesDiv.appendChild(pScoreHeartDiv);
+        let pScoreLabelDiv = document.createElement("div");
+        pScoreLabelDiv.id = "pScoreLabelDiv";
+        pScoreHeartDiv.appendChild(pScoreLabelDiv);
+        let pHeartImgDiv = document.createElement("div");
+        pHeartImgDiv.classList = "pHeartImgDiv";
+        pScoreHeartDiv.appendChild(pHeartImgDiv);
         let pScoreLabel = document.createElement("p");
         pScoreLabel.textContent = "Lives Left: ";
         pScoreLabel.classList = "ScoreLabel";
     
         let botLivesDiv = document.querySelector(".botLives");
+        let botScoreHeartDiv = document.createElement("div");
+        botScoreHeartDiv.classList = "botScoreHeartDiv";
+        botLivesDiv.appendChild(botScoreHeartDiv);
+        let botScoreLabelDiv = document.createElement("div");
+        botScoreLabelDiv.classList = "botScoreLabelDiv";
+        botScoreHeartDiv.appendChild(botScoreLabelDiv);
+        let botHeartImgDiv = document.createElement("div");
+        botHeartImgDiv.classList = "botHeartImgDiv";
+        botScoreHeartDiv.appendChild(botHeartImgDiv);
         let botScoreLabel = document.createElement("p");
         botScoreLabel.textContent = "Lives Left: ";
         botScoreLabel.classList = "ScoreLabel";
@@ -66,23 +85,23 @@ function start(){
         botPrev.classList = "botPrev";
         botPrev.setAttribute("src", "");
     
-        playerLivesDiv.appendChild(pScoreLabel);
+        pScoreLabelDiv.appendChild(pScoreLabel);
         for(let i=0; i<10; i++)
         {
             let pLivesLeft = [];
             pLivesLeft[i] = document.createElement("img");
             pLivesLeft[i].setAttribute("src", "img/heart.png");
             pLivesLeft[i].classList = "pLivesLeft";
-            playerLivesDiv.appendChild(pLivesLeft[i]);
+            pHeartImgDiv.appendChild(pLivesLeft[i]);
         }
-        botLivesDiv.appendChild(botScoreLabel);
+        botScoreLabelDiv.appendChild(botScoreLabel);
         for(let i=0; i<10; i++)
         {
             let botLivesLeft = [];
             botLivesLeft[i] = document.createElement("img");
             botLivesLeft[i].setAttribute("src", "img/heart.png");
             botLivesLeft[i].classList = "pLivesLeft";
-            botLivesDiv.appendChild(botLivesLeft[i]);
+            botHeartImgDiv.appendChild(botLivesLeft[i]);
         }
         pPreview.appendChild(pPrev);
         botPreview.appendChild(botPrev);
@@ -108,6 +127,8 @@ function start(){
         btnScissor.addEventListener("click", chooseScissor);
     
         function chooseRock(){
+            let pheartCount = document.querySelector(".pHeartImgDiv");
+            let botheartCount = document.querySelector(".botHeartImgDiv");
             let pPreview = document.querySelector(".pPreview");
             let pPrev = document.createElement("img");
             pPrev.setAttribute("src", "img/rock.png");
@@ -120,7 +141,7 @@ function start(){
             {
                 let botPreview1 = document.querySelector(".botPreview");
                 let botprev1 = document.createElement("img");
-                botprev1.setAttribute("src", "img/botrock.png")
+                botprev1.setAttribute("src", "img/botrock.png");
                 botprev1.classList = "botPrev";
                 botPreview1.replaceChild(botprev1, botPreview1.children[0]);
     
@@ -134,11 +155,11 @@ function start(){
     
             else if(botChoose===2)
             {
-                playerLivesDiv.removeChild(playerLivesDiv.lastElementChild);
+                pHeartImgDiv.removeChild(pHeartImgDiv.lastElementChild);
                 
                 let botPreview1 = document.querySelector(".botPreview");
                 let botprev1 = document.createElement("img");
-                botprev1.setAttribute("src", "img/botpaper.png")
+                botprev1.setAttribute("src", "img/botpaper.png");
                 botprev1.classList = "botPrev";
                 botPreview1.replaceChild(botprev1, botPreview1.children[0]);
                 
@@ -151,11 +172,11 @@ function start(){
             }   
     
             else{
-                botLivesDiv.removeChild(botLivesDiv.lastElementChild);
+                botHeartImgDiv.removeChild(botHeartImgDiv.lastElementChild);
                 
                 let botPreview1 = document.querySelector(".botPreview");
                 let botprev1 = document.createElement("img");
-                botprev1.setAttribute("src", "img/botscissor.png")
+                botprev1.setAttribute("src", "img/botscissor.png");
                 botprev1.classList = "botPrev";
                 botPreview1.replaceChild(botprev1, botPreview1.children[0]);
                 
@@ -166,9 +187,61 @@ function start(){
 
                 div.replaceChild(win, div.children[0]);
             }
+
+            let pLivesCount = pheartCount.childElementCount;
+            console.log(pLivesCount+"Player");
+
+            let botLivesCount = botheartCount.childElementCount;
+            console.log(botLivesCount+"Computer");
+
+            if(pLivesCount===0 || botLivesCount===0)
+            {
+                btnRock.setAttribute("disabled","");
+                btnPaper.setAttribute("disabled","");
+                btnScissor.setAttribute("disabled","");
+
+                let div = document.querySelector(".div");
+                let quitContinue = document.createElement("div");
+                quitContinue.classList = "quitContinue";
+                let gameOver = document.createElement("h1");
+                gameOver.id = "gameOver";
+                gameOver.textContent = "Game Over";
+                let quit = document.createElement("button");
+                quit.id = "Quit";
+                quit.textContent = "Quit";
+                let playAgain = document.createElement("button");
+                playAgain.id = "playAgain";
+                playAgain.textContent = "Play Again";
+            
+                div.replaceChild(gameOver, div.children[0]);
+                div.insertBefore(quitContinue, div.lastElementChild);
+                quitContinue.appendChild(playAgain);
+                quitContinue.appendChild(quit);
+
+                quit.addEventListener("click", quitGame);
+
+                function quitGame(){
+                    location.reload();
+                }
+
+                playAgain.addEventListener("click", reStart);
+
+                function reStart()
+                {   
+                    div.removeChild(div.firstElementChild);
+                    div.removeChild(div.children[2]);
+                    playerLivesDiv.removeChild(playerLivesDiv.children[0]);
+                    botLivesDiv.removeChild(botLivesDiv.children[0]);
+                    pDiv.removeChild(pDiv.lastElementChild);
+                    botDiv.removeChild(botDiv.lastElementChild);
+                    start();
+                }
+            }
         }
         
         function choosePaper(){
+            let pheartCount = document.querySelector(".pHeartImgDiv");
+            let botheartCount = document.querySelector(".botHeartImgDiv");
             let pPreview = document.querySelector(".pPreview");
             let pPrev = document.createElement("img");
             pPrev.setAttribute("src", "img/paper.png");
@@ -179,7 +252,7 @@ function start(){
     
             if(botChoose===1)
             {
-                botLivesDiv.removeChild(botLivesDiv.lastElementChild);
+                botHeartImgDiv.removeChild(botHeartImgDiv.lastElementChild);
     
                 let botPreview1 = document.querySelector(".botPreview");
                 let botprev1 = document.createElement("img");
@@ -212,7 +285,7 @@ function start(){
             }
     
             else{
-                playerLivesDiv.removeChild(playerLivesDiv.lastElementChild);
+                pHeartImgDiv.removeChild(pHeartImgDiv.lastElementChild);
     
                 let botPreview1 = document.querySelector(".botPreview");
                 let botprev1 = document.createElement("img");
@@ -227,20 +300,72 @@ function start(){
 
                 div.replaceChild(lose, div.children[0]);
             }
+
+            let pLivesCount = pheartCount.childElementCount;
+            console.log(pLivesCount);
+
+            let botLivesCount = botheartCount.childElementCount;
+            console.log(botLivesCount);
+
+            if(pLivesCount===0 || botLivesCount===0)
+            {
+                btnRock.setAttribute("disabled","");
+                btnPaper.setAttribute("disabled","");
+                btnScissor.setAttribute("disabled","");
+
+                let div = document.querySelector(".div");
+                let quitContinue = document.createElement("div");
+                quitContinue.classList = "quitContinue";
+                let gameOver = document.createElement("h1");
+                gameOver.id = "gameOver";
+                gameOver.textContent = "Game Over";
+                let quit = document.createElement("button");
+                quit.id = "Quit";
+                quit.textContent = "Quit";
+                let playAgain = document.createElement("button");
+                playAgain.id = "playAgain";
+                playAgain.textContent = "Play Again";
+            
+                div.replaceChild(gameOver, div.children[0]);
+                div.insertBefore(quitContinue, div.lastElementChild);
+                quitContinue.appendChild(playAgain);
+                quitContinue.appendChild(quit);
+
+                quit.addEventListener("click", quitGame);
+
+                function quitGame(){
+                    location.reload();
+                }
+
+                playAgain.addEventListener("click", reStart);
+
+                function reStart()
+                {
+                    div.removeChild(div.firstElementChild);
+                    div.removeChild(div.children[2]);
+                    playerLivesDiv.removeChild(playerLivesDiv.children[0]);
+                    botLivesDiv.removeChild(botLivesDiv.children[0]);
+                    pDiv.removeChild(pDiv.lastElementChild);
+                    botDiv.removeChild(botDiv.lastElementChild);
+                    start();
+                }
+            }
         }
     
         function chooseScissor(){
-            let botChoose = Math.ceil(Math.random()*3);
+            let pheartCount = document.querySelector(".pHeartImgDiv");
+            let botheartCount = document.querySelector(".botHeartImgDiv");
     
             let pPreview = document.querySelector(".pPreview");
             let pPrev = document.createElement("img");
             pPrev.setAttribute("src", "img/scissor.png");
             pPrev.classListlist = "pPrev";
             pPreview.replaceChild(pPrev, pPreview.children[0]);
+            let botChoose = Math.ceil(Math.random()*3);
     
             if(botChoose===1)
             {
-                playerLivesDiv.removeChild(playerLivesDiv.lastElementChild);
+                pHeartImgDiv.removeChild(pHeartImgDiv.lastElementChild);
     
                 let botPreview1 = document.querySelector(".botPreview");
                 let botprev1 = document.createElement("img");
@@ -258,7 +383,7 @@ function start(){
     
             else if(botChoose===2)
             {
-                botLivesDiv.removeChild(botLivesDiv.lastElementChild);
+                botHeartImgDiv.removeChild(botHeartImgDiv.lastElementChild);
     
                 let botPreview1 = document.querySelector(".botPreview");
                 let botprev1 = document.createElement("img");
@@ -288,7 +413,55 @@ function start(){
 
                 div.replaceChild(tie, div.children[0]);
             }
-    
+            let pLivesCount = pheartCount.childElementCount;
+            console.log(pLivesCount);
+            
+            let botLivesCount = botheartCount.childElementCount;
+            console.log(botLivesCount);
+
+            if(pLivesCount===0 || botLivesCount===0)
+            {
+                btnRock.setAttribute("disabled","");
+                btnPaper.setAttribute("disabled","");
+                btnScissor.setAttribute("disabled","");
+
+                let div = document.querySelector(".div");
+                let quitContinue = document.createElement("div");
+                quitContinue.classList = "quitContinue";
+                let gameOver = document.createElement("h1");
+                gameOver.id = "gameOver";
+                gameOver.textContent = "Game Over";
+                let quit = document.createElement("button");
+                quit.id = "Quit";
+                quit.textContent = "Quit";
+                let playAgain = document.createElement("button");
+                playAgain.id = "playAgain";
+                playAgain.textContent = "Play Again";
+            
+                div.replaceChild(gameOver, div.children[0]);
+                div.insertBefore(quitContinue, div.lastElementChild);
+                quitContinue.appendChild(playAgain);
+                quitContinue.appendChild(quit);
+
+                quit.addEventListener("click", quitGame);
+
+                function quitGame(){
+                    location.reload();
+                }
+
+                playAgain.addEventListener("click", reStart);
+
+                function reStart()
+                {
+                    div.removeChild(div.firstElementChild);
+                    div.removeChild(div.children[2]);
+                    playerLivesDiv.removeChild(playerLivesDiv.children[0]);
+                    botLivesDiv.removeChild(botLivesDiv.children[0]);
+                    pDiv.removeChild(pDiv.lastElementChild);
+                    botDiv.removeChild(botDiv.lastElementChild);
+                    start();
+                }
+            }
         }
     }
 }

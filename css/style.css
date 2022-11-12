@@ -35,7 +35,7 @@ body{
 }
 
 #startBtn:hover{
-    color: rgb(245, 245, 0);
+    color: rgb(217, 217, 0);
     transform: scale(1.1);
     animation: none;
 }
@@ -65,7 +65,7 @@ body{
 }
 
 #ready:hover{
-    color: rgb(245, 245, 0);
+    color: rgb(217, 217, 0);
     transform: scale(1.1);
     animation: none;
 }
@@ -86,7 +86,7 @@ body{
 
 .inside{
     background-image: url("/img/boxingring.png");
-    background-position: center;
+    background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
     width: 600px;
@@ -142,4 +142,33 @@ body{
     font-family: 'VT323', monospace;
     font-size: 30px;
     font-weight: bolder;
+}
+
+#gameOver{
+    font-family: 'Press Start 2P', cursive;
+}
+
+.quitContinue{
+    display: flex;
+    justify-content: space-between;
+}
+
+#Quit, #playAgain{
+    background-color: white;
+    border-style: none;
+    font-family: 'VT323', monospace;
+    font-size: 30px;    
+    transition: transform .2s;
+}
+
+#Quit:hover{
+    color: rgb(217, 217, 0);
+    transform: scale(1.1);
+    animation: none;
+}
+
+#playAgain:hover{
+    color: rgb(217, 217, 0);
+    transform: scale(1.1);
+    animation: none;
 }
