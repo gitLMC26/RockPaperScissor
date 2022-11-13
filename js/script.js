@@ -4,11 +4,15 @@ let botDiv = document.querySelector("#botDiv");
 botDiv.style.display = "none";
 let btnStart = document.querySelector("#startBtn");
 btnStart.addEventListener("click", start);
+let pPreview = document.querySelector(".pPreview");
+let botPreview = document.querySelector(".botPreview");
 
 function start(){
     btnStart.style.display = "none";
     pDiv.style.display = "flex";
     botDiv.style.display = "flex";
+    pPreview.style.visibility = "hidden";
+    botPreview.style.visibility = "hidden";
 
     let gameNameh1 = document.querySelector("#gameNameh1");
     gameNameh1.style.display = "none";
@@ -75,11 +79,10 @@ function start(){
         botScoreLabel.textContent = "Lives Left: ";
         botScoreLabel.classList = "ScoreLabel";
     
-        let pPreview = document.querySelector(".pPreview");
         let pPrev = document.createElement("img");
         pPrev.classList = "pPrev";
         pPrev.setAttribute("src", "");
-    
+        
         let botPreview = document.querySelector(".botPreview");
         let botPrev = document.createElement("img");
         botPrev.classList = "botPrev";
@@ -131,6 +134,8 @@ function start(){
             let botheartCount = document.querySelector(".botHeartImgDiv");
             let pPreview = document.querySelector(".pPreview");
             let pPrev = document.createElement("img");
+            pPreview.style.visibility = "visible";
+            botPreview.style.visibility = "visible";
             pPrev.setAttribute("src", "img/rock.png");
             pPrev.classListlist = "pPrev";
             pPreview.replaceChild(pPrev, pPreview.children[0]);
@@ -243,6 +248,8 @@ function start(){
             let pheartCount = document.querySelector(".pHeartImgDiv");
             let botheartCount = document.querySelector(".botHeartImgDiv");
             let pPreview = document.querySelector(".pPreview");
+            pPreview.style.visibility = "visible";
+            botPreview.style.visibility = "visible";
             let pPrev = document.createElement("img");
             pPrev.setAttribute("src", "img/paper.png");
             pPrev.classListlist = "pPrev";
@@ -355,8 +362,9 @@ function start(){
         function chooseScissor(){
             let pheartCount = document.querySelector(".pHeartImgDiv");
             let botheartCount = document.querySelector(".botHeartImgDiv");
-    
             let pPreview = document.querySelector(".pPreview");
+            pPreview.style.visibility = "visible";
+            botPreview.style.visibility = "visible";
             let pPrev = document.createElement("img");
             pPrev.setAttribute("src", "img/scissor.png");
             pPrev.classListlist = "pPrev";
