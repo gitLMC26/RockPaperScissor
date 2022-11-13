@@ -2,6 +2,7 @@
 
 body{
     margin: 0;
+    background-color: rgb(39, 39, 39);
 }
 
 .game_container{
@@ -19,23 +20,26 @@ body{
 
 #gameNameh1{
     font-family: 'Press Start 2P', cursive;
+    color: azure;
 }
 
 #fight{
     font-family: 'Press Start 2P', cursive;
+    color: azure;
 }
 
 #startBtn{
     border-style: none;
     font-family: 'VT323', monospace;
     font-size: 30px;
-    background-color: white;
     animation: fadeinout 1.5s infinite;
     transition: transform .2s;
+    color: azure;
 }
 
 #startBtn:hover{
     color: rgb(217, 217, 0);
+    background-color: rgb(39, 39, 39);
     transform: scale(1.1);
     animation: none;
 }
@@ -44,22 +48,26 @@ body{
 {
   0%{
     opacity:0;
+    background-color: rgb(39, 39, 39);
   }
   50%
   {
     opacity:1;
+    background-color: rgb(39, 39, 39);
   }
   100%
   {
     opacity:0;
+    background-color: rgb(39, 39, 39);
   }
 }
 
 #ready{
     border-style: none;
+    color: azure;
+    background-color: rgb(39, 39, 39);
     font-family: 'VT323', monospace;
     font-size: 30px;
-    background-color: white;
     animation: fadeinout 1.5s infinite;
     transition: transform .2s;
 }
@@ -77,7 +85,6 @@ body{
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    border: 1px solid black;
 }
 
 .bottom{
@@ -146,6 +153,7 @@ body{
 
 #gameOver{
     font-family: 'Press Start 2P', cursive;
+    color: azure;
 }
 
 .quitContinue{
@@ -154,8 +162,9 @@ body{
 }
 
 #Quit, #playAgain{
-    background-color: white;
     border-style: none;
+    color: azure;
+    background-color: rgb(39, 39, 39);
     font-family: 'VT323', monospace;
     font-size: 30px;    
     transition: transform .2s;

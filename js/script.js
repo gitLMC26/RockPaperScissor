@@ -219,7 +219,7 @@ function start(){
                 playAgain.textContent = "Play Again";
             
                 div.replaceChild(gameOver, div.children[0]);
-                div.insertBefore(quitContinue, div.lastElementChild);
+                div.insertBefore(quitContinue, div.lasttElementChild);
                 quitContinue.appendChild(playAgain);
                 quitContinue.appendChild(quit);
 
